@@ -1,0 +1,33 @@
+.header {
+
+    &-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #020203;
+        height: 80px;
+    }
+
+    &-logo{
+        height: 60px;
+        padding-left: 20px;
+    }
+
+    &-nav{
+        display: flex;
+        justify-content: space-between;
+        width: 75%;
+        padding: 0 40px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 24px;
+
+        a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+    }
+}
