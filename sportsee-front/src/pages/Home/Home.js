@@ -5,7 +5,12 @@ import NutritionCard from '../../components/NutritionCard/NutritionCard';
 import SessionChart from '../../components/SessionChart/SessionChart';
 import PerfChart from '../../components/PerfChart/PerfChart';
 import ScoreChart from '../../components/ScoreChart/ScoreChart';
+import IconFire from '../../assets/icon-fire.png';
+import IconChicken from '../../assets/icon-chicken.png';
+import IconBurger from '../../assets/icon-burger.png';
+import IconApple from '../../assets/icon-apple.png';
 import "./home.scss";
+import "../../components/NutritionCard/nutritionCard.scss";
 
 
 
@@ -24,10 +29,10 @@ function Home(){
                     </div>                    
                 </section>
                 <aside className='nutri-cards-container'>
-                    <NutritionCard />
-                    <NutritionCard />
-                    <NutritionCard />
-                    <NutritionCard />
+                    <NutritionCard icon={IconFire} quantity={'1,930kCal'} text={'Calories'} />
+                    <NutritionCard icon={IconChicken} quantity={'155g'} text={'Proteines'} />
+                    <NutritionCard icon={IconApple} quantity={'290g'} text={'Glucides'} />
+                    <NutritionCard icon={IconBurger} quantity={'50g'} text={'Lipides'} />
                 </aside>  
             </div>                  
         </>
