@@ -30,19 +30,19 @@
             height: 60px;
             z-index: 1;
 
-            &--Calories {
+            &--calories {
                 background-color: variables.$light-red-chart;
             }
 
-            &--Proteines {
+            &--proteines {
                 background-color: variables.$light-blue-chart;
             }
 
-            &--Glucides {
+            &--glucides {
                 background-color: variables.$light-yellow-chart;
             }
 
-            &--Lipides {
+            &--lipides {
                 background-color: variables.$light-pink-chart;
             }
         }

@@ -9,9 +9,9 @@ function Header(){
             <img className='header-logo' src={logo} alt="runner"/>
             <nav className='header-nav'>
                 <Link to='/'>Accueil</Link>
-                <Link to='/'>Profil</Link>
-                <Link to='/'>Réglages</Link>
-                <Link to='/'>Communauté</Link>
+                <Link to='/user/12'>Profil</Link>
+                <Link to='/Settings'>Réglages</Link>
+                <Link to='/Community'>Communauté</Link>
             </nav>
         </header>
     )

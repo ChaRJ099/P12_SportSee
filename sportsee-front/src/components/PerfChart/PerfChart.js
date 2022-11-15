@@ -1,41 +1,41 @@
 import './perf-chart.scss';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts';
 
 function PerfChart() {
 
     const data = [
         {
-          subject: 'Math',
+          subject: 'Intensité',
           A: 120,
           B: 110,
           fullMark: 150,
         },
         {
-          subject: 'Chinese',
+          subject: 'Vitesse',
           A: 98,
           B: 130,
           fullMark: 150,
         },
         {
-          subject: 'English',
+          subject: 'Force',
           A: 86,
           B: 130,
           fullMark: 150,
         },
         {
-          subject: 'Geography',
+          subject: 'Endurance',
           A: 99,
           B: 100,
           fullMark: 150,
         },
         {
-          subject: 'Physics',
+          subject: 'Energie',
           A: 85,
           B: 90,
           fullMark: 150,
         },
         {
-          subject: 'History',
+          subject: 'Cardio',
           A: 65,
           B: 85,
           fullMark: 150,
@@ -48,21 +48,18 @@ function PerfChart() {
             <RadarChart
       cx="50%"
       cy="50%"
-      outerRadius={150}
-      width={500}
-      height={500}
+      outerRadius={85}
+      width={258}
+      height={258}
       data={data}
     >
-      <PolarGrid />
-      <PolarAngleAxis dataKey="subject" />
-      <PolarRadiusAxis />
+      <PolarGrid radialLines={false} />
+      <PolarAngleAxis dataKey='subject' 
+                    tickLine={false} 
+                    tick={{ fontSize: 12, fontWeight: 500 }} 
+                    stroke="#FFFFFF"  />
       <Radar
-        name="Mike"
-        dataKey="A"
-        stroke="#8884d8"
-        fill="#8884d8"
-        fillOpacity={0.6}
-      />
+        dataKey="A" fill="#FF0101B2" />
     </RadarChart>
         </div>
     )

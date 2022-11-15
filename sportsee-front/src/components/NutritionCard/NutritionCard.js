@@ -3,7 +3,7 @@ import './nutritionCard.scss'
 function NutritionCard(props) {
 
     return (  
-    <div className='card-nutrition'>
+    <div className='card-nutrition' key={props.id}>
         <div className={`card-nutrition-icon-container card-nutrition-icon-container--${props.text}`}>
             <img className='card-nutrition-icon' src={props.icon} alt='calories icon'/>
         </div>
