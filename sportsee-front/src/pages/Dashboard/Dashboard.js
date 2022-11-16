@@ -17,19 +17,25 @@ import "../../components/NutritionCard/nutritionCard.scss";
 
 
 function Dashboard(){
+
+    const { id } = useParams();
+
     const userDataMock = Data.USER_MAIN_DATA;
     const userActivityMock = Data.USER_ACTIVITY;
-    const userAverageMock = Data.USER_AVERAGE_SESSIONS;
-    const userPerfMock = Data.USER_PERFORMANCE;
-    const { id } = useParams();
-    const user = userDataMock.find((user) => user.id.toString() === id );
+    // const userAverageMock = Data.USER_AVERAGE_SESSIONS;
+    // const userPerfMock = Data.USER_PERFORMANCE;
+    
+    const userData = userDataMock.find((userData) => userData.id.toString() === id);
+    const userActivity = userActivityMock.find((userActivity) => (userActivity.userId).toString() === id );
+
+    console.log(userActivity);
 
     return(
         <>
-            <Title id={user.id} firstname={user.userInfos.firstName}/>
+            <Title id={userData.id} firstname={userData.userInfos.firstName}/>
             <div className='section-aside-container'>
                 <section className='activity-container'>                
-                    <UserActivity />
+                    <UserActivity  dataActivity={userActivity.sessions} />
                     <div className='charts-container'>
                         <SessionChart />
                         <PerfChart />
@@ -37,10 +43,10 @@ function Dashboard(){
                     </div>                    
                 </section>
                 <aside className='nutri-cards-container'>
-                    <NutritionCard icon={IconFire} quantity={[`${user.keyData.calorieCount}`, 'kCal']} text={'calories'} />
-                    <NutritionCard icon={IconChicken} quantity={[`${user.keyData.proteinCount}`, 'g']} text={'proteines'} />
-                    <NutritionCard icon={IconApple} quantity={[`${user.keyData.carbohydrateCount}`, 'g']} text={'glucides'} />
-                    <NutritionCard icon={IconBurger} quantity={[`${user.keyData.lipidCount}`, 'g']} text={'lipides'} />
+                    <NutritionCard icon={IconFire} quantity={[`${userData.keyData.calorieCount}`, 'kCal']} text={'calories'} />
+                    <NutritionCard icon={IconChicken} quantity={[`${userData.keyData.proteinCount}`, 'g']} text={'proteines'} />
+                    <NutritionCard icon={IconApple} quantity={[`${userData.keyData.carbohydrateCount}`, 'g']} text={'glucides'} />
+                    <NutritionCard icon={IconBurger} quantity={[`${userData.keyData.lipidCount}`, 'g']} text={'lipides'} />
                 </aside>  
             </div>                  
         </>
