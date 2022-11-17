@@ -22,13 +22,15 @@ function Dashboard(){
 
     const userDataMock = Data.USER_MAIN_DATA;
     const userActivityMock = Data.USER_ACTIVITY;
-    // const userAverageMock = Data.USER_AVERAGE_SESSIONS;
-    // const userPerfMock = Data.USER_PERFORMANCE;
+    const userAverageMock = Data.USER_AVERAGE_SESSIONS;
+    const userPerfMock = Data.USER_PERFORMANCE;
     
     const userData = userDataMock.find((userData) => userData.id.toString() === id);
     const userActivity = userActivityMock.find((userActivity) => (userActivity.userId).toString() === id );
+    const userAverage = userAverageMock.find((userAverage) => (userAverage.userId).toString() === id );
+    const userPerf = userPerfMock.find((userPerf) => (userPerf.userId).toString() === id );
 
-    console.log(userActivity);
+    console.log(userData);
 
     return(
         <>
@@ -37,9 +39,9 @@ function Dashboard(){
                 <section className='activity-container'>                
                     <UserActivity  dataActivity={userActivity.sessions} />
                     <div className='charts-container'>
-                        <SessionChart />
-                        <PerfChart />
-                        <ScoreChart />
+                        <SessionChart dataSessions={userAverage.sessions} />
+                        <PerfChart dataPerf={userPerf.data} />
+                        <ScoreChart dataScore={userData}/>
                     </div>                    
                 </section>
                 <aside className='nutri-cards-container'>

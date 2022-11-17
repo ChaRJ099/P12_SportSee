@@ -6,4 +6,16 @@
     width: 258px;
     height: 263px;
     overflow: hidden;
+
+    .recharts {
+
+        &-wrapper {
+            max-width: 100%;
+        }
+    
+        &-surface {
+            width: 100%;
+        }
+    }
 }
+
