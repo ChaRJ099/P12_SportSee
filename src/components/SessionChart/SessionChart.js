@@ -1,6 +1,33 @@
 import "./session-chart.scss";
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Rectangle,
+} from "recharts";
 import PropTypes from "prop-types";
+
+/**
+ * The variable  returns a rectangle  with  a chosen color when active
+ * @param {object} props provided  by recharts
+ * @returns a  rectangle with a color
+ */
+const CustomCursor = (props) => {
+  const { points, width, height } = props;
+  const { x, y } = points[0];
+  return (
+    <Rectangle
+      fill="rgba(0, 0, 0, 0.1)"
+      x={x}
+      y={0}
+      width={width}
+      height={height + 100}
+    />
+  );
+};
 
 function SessionChart({ dataSessions }) {
   const numberToLetter = (day) => {
@@ -24,10 +51,69 @@ function SessionChart({ dataSessions }) {
     }
   };
 
+  /**
+   * it returns  a tooltip with value and an added text "min" when active or it doesnt return anything
+   * @param {boolean} active
+   * @param {array} payload
+   * @returns {Node | null}
+   */
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip-time">
+          <p className="label">{payload[0].value} min</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className="session-chart-container">
       <h2 className="session-chart-title">Durée moyenne des sessions</h2>
       <LineChart
+        width={300}
+        height={100}
+        data={dataSessions}
+        margin={{
+          top: 5,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+      >
+        <CartesianGrid horizontal={false} vertical={false} />
+        <XAxis
+          dataKey="day"
+          axisLine={false}
+          tickLine={false}
+          tick={{ fontSize: 12, fontWeight: 500 }}
+          stroke="rgba(255, 255, 255, 0.5)"
+          tickMargin={55}
+          tickFormatter={numberToLetter}
+        />
+        <YAxis hide />
+        <Tooltip
+          wrapperStyle={{ outline: "none" }}
+          content={<CustomTooltip />}
+          cursor={<CustomCursor />}
+        />
+        <Line
+          allowDataOverflow={false}
+          data
+          type="natural"
+          dataKey="sessionLength"
+          stroke="rgba(255, 255, 255, 0.5)"
+          strokeWidth={2}
+          dot={false}
+          activeDot={{
+            r: 4,
+            strokeWidth: 5,
+            stroke: "rgba(255, 255, 255, 0.198345)",
+          }}
+        />
+      </LineChart>
+      {/* <LineChart
         width={300}
         height={100}
         data={dataSessions}
@@ -49,8 +135,13 @@ function SessionChart({ dataSessions }) {
           tickMargin={55}
           tickFormatter={numberToLetter}
         />
-        <YAxis hide="true" domain={["dataMin", "dataMax"]} />
-        {/* <Tooltip content={<CustomToolTypeSessionDuration />} cursor={false} /> */}
+        <YAxis
+          axisLine={false}
+          tickLine={false}
+          tick={false}
+          domain={["dataMin - 5", "dataMax + 5"]}
+        />
+        <Tooltip content={<CustomTooltip />} />
         <Line
           type="natural"
           dataKey="sessionLength"
@@ -58,7 +149,7 @@ function SessionChart({ dataSessions }) {
           strokeWidth={2}
           dot={false}
         />
-      </LineChart>
+      </LineChart> */}
     </div>
   );
 }

@@ -20,9 +20,9 @@ function UserActivity({ dataActivity }) {
   function CustomTooltipActivity({ payload, active }) {
     if (active) {
       return (
-        <div className="activityChartTooltip">
-          <div>{`${payload[0].value}`}kg</div>
-          <div>{`${payload[1].value}`}Kcal</div>
+        <div className="custom-tooltip">
+          <p className="tooltip-data">{`${payload[0].value}`}kg</p>
+          <p className="tooltip-data">{`${payload[1].value}`}Kcal</p>
         </div>
       );
     }
@@ -33,14 +33,16 @@ function UserActivity({ dataActivity }) {
     <div className="user-activity-container">
       <h2 className="activityChartTitle">Activité quotidienne</h2>
       <BarChart
-        width={800}
-        height={300}
+        width={835}
+        height={320}
         data={dataActivity}
-        margin={{ top: 10, right: 5, left: 5, bottom: 10 }}
+        barSize={7}
+        barGap={8}
+        margin={{ top: 80, right: 50, left: 45, bottom: 20 }}
       >
         <CartesianGrid
           vertical="false"
-          strokeDasharray="3"
+          strokeDasharray="3 3"
           height={1}
           horizontalPoints={[90, 185]}
         />
@@ -54,6 +56,7 @@ function UserActivity({ dataActivity }) {
         />
         <YAxis
           dataKey="calories"
+          tickLine={false}
           orientation="right"
           tickCount="3"
           tickSize="0"
@@ -66,10 +69,12 @@ function UserActivity({ dataActivity }) {
         <Legend
           verticalAlign="top"
           align="right"
-          height={80}
-          iconType="circle"
+          // width={277}
+          // height={25}
+          iconType={"circle"}
           iconSize={8}
-          formatter={(value, entry, index) => (
+          wrapperStyle={{ top: 35, right: 20 }}
+          formatter={(value) => (
             <span className="activityLegendColor">{value}</span>
           )}
         />
