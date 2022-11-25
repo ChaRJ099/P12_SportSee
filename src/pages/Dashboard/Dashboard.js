@@ -23,31 +23,11 @@ import "../../components/NutritionCard/nutritionCard.scss";
 function Dashboard() {
   const { id } = useParams();
 
-  const [data, setData] = useState({});
+  const [userData, setUserData] = useState({});
+  const [userActivity, setUserActivity] = useState({});
+  const [userAverage, setUserAverage] = useState({});
+  const [userPerf, setUserPerf] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    async function getData() {
-      try {
-        const userDataAPI = await getUserMainData(id);
-        const userActivityAPI = await getUserActivity(id);
-        const userAverageAPI = await getUserAverage(id);
-        const userPerformanceAPI = await getUserPerformance(id);
-
-        setData({
-          userDataAPI,
-          userActivityAPI,
-          userAverageAPI,
-          userPerformanceAPI,
-        });
-
-        setIsLoading(false);
-      } catch (error) {
-        console.log("=====error=====", error);
-      }
-    }
-    getData();
-  }, [id]);
 
   const userDataMock = Data.USER_MAIN_DATA.find(
     (data) => data.id.toString() === id
@@ -62,23 +42,28 @@ function Dashboard() {
     (data) => data.userId.toString() === id
   );
 
-  let userData = {};
-  let userActivity = {};
-  let userAverage = {};
-  let userPerf = {};
+  useEffect(() => {
+    async function getData() {
+      try {
+        if (id === "18") {
+          setUserData(await getUserMainData(id));
+          setUserActivity(await getUserActivity(id));
+          setUserAverage(await getUserAverage(id));
+          setUserPerf(await getUserPerformance(id));
+        } else {
+          setUserData(userDataMock);
+          setUserActivity(userActivityMock);
+          setUserAverage(userAverageMock);
+          setUserPerf(userPerfMock);
+        }
 
-  if (id === "12") {
-    userData = userDataMock;
-    userActivity = userActivityMock;
-    userAverage = userAverageMock;
-    userPerf = userPerfMock;
-  } else {
-    console.log("data", data);
-    userData = data.userDataAPI;
-    userActivity = data.userActivityAPI;
-    userAverage = data.userAverageAPI;
-    userPerf = data.userPerformanceAPI;
-  }
+        setIsLoading(false);
+      } catch (error) {
+        console.log("=====error=====", error);
+      }
+    }
+    getData();
+  }, [userDataMock, userActivityMock, userAverageMock, userPerfMock, id]);
 
   return (
     <>
