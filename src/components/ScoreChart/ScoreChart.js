@@ -2,7 +2,8 @@ import "./score-chart.scss";
 import { RadialBarChart, RadialBar } from "recharts";
 import PropTypes from "prop-types";
 
-function ScoreChart({ dataScore }) {
+const ScoreChart = ({ dataScore }) => {
+  console.log("dataScore", dataScore);
   const score = dataScore.todayScore;
 
   /**
@@ -56,10 +57,10 @@ function ScoreChart({ dataScore }) {
       </div>
     </div>
   );
-}
+};
 
 ScoreChart.propTypes = {
-  dataScore: PropTypes.number,
+  dataScore: PropTypes.object,
 };
 
 export default ScoreChart;

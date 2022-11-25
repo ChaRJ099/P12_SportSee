@@ -1,5 +1,6 @@
 import "./session-chart.scss";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
+import PropTypes from "prop-types";
 
 function SessionChart({ dataSessions }) {
   const numberToLetter = (day) => {
@@ -61,5 +62,14 @@ function SessionChart({ dataSessions }) {
     </div>
   );
 }
+
+SessionChart.propTypes = {
+  dataSessions: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number,
+      sessionLength: PropTypes.number,
+    })
+  ),
+};
 
 export default SessionChart;

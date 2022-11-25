@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import PropTypes from "prop-types";
 
 function UserActivity({ dataActivity }) {
   const dayFormat = (value) => {
@@ -90,5 +91,15 @@ function UserActivity({ dataActivity }) {
     </div>
   );
 }
+
+UserActivity.propTypes = {
+  dataActivity: PropTypes.arrayOf(
+    PropTypes.shape({
+      calories: PropTypes.number,
+      day: PropTypes.string,
+      kilogram: PropTypes.number,
+    })
+  ),
+};
 
 export default UserActivity;

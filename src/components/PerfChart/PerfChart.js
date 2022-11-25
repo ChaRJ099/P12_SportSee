@@ -1,5 +1,6 @@
 import "./perf-chart.scss";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
+import PropTypes from "prop-types";
 
 function PerfChart({ dataPerf }) {
   const numberToLabelPerf = (kind) => {
@@ -37,5 +38,14 @@ function PerfChart({ dataPerf }) {
     </div>
   );
 }
+
+PerfChart.propTypes = {
+  dataPerf: PropTypes.arrayOf(
+    PropTypes.shape({
+      kind: PropTypes.number,
+      value: PropTypes.number,
+    })
+  ),
+};
 
 export default PerfChart;
