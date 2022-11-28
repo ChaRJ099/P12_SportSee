@@ -31,18 +31,20 @@ function UserActivity({ dataActivity }) {
 
   return (
     <div className="user-activity-container">
-      <h2 className="activityChartTitle">Activité quotidienne</h2>
+      <h2 className="user-activity-title">Activité quotidienne</h2>
+
       <BarChart
-        width={835}
+        className="user-activity-barchart"
+        width={845}
         height={320}
         data={dataActivity}
         barSize={7}
         barGap={8}
-        margin={{ top: 80, right: 50, left: 45, bottom: 20 }}
+        margin={{ top: 80, right: 30, left: 30, bottom: 10 }}
       >
         <CartesianGrid
           vertical="false"
-          strokeDasharray="3 3"
+          strokeDasharray="3"
           height={1}
           horizontalPoints={[90, 185]}
         />
@@ -61,34 +63,34 @@ function UserActivity({ dataActivity }) {
           tickCount="3"
           tickSize="0"
           axisLine={false}
-          tickMargin="30"
+          tickMargin="50"
           width={80}
           stroke="#9B9EAC"
         />
         <Tooltip content={<CustomTooltipActivity />} />
         <Legend
+          className="user-activity-legend"
           verticalAlign="top"
           align="right"
-          // width={277}
-          // height={25}
+          width={300}
           iconType={"circle"}
           iconSize={8}
-          wrapperStyle={{ top: 35, right: 20 }}
+          wrapperStyle={{ top: 0, right: 30 }}
           formatter={(value) => (
             <span className="activityLegendColor">{value}</span>
           )}
         />
         <Bar
-          dataKey="calories"
-          name="Calories brûlées (kCal)"
-          fill="#E60000"
+          dataKey="kilogram"
+          name="Poids (kg)"
+          fill="#282D30"
           radius={[25, 25, 0, 0]}
           barSize={7}
         />
         <Bar
-          dataKey="kilogram"
-          name="Poids (kg)"
-          fill="#282D30"
+          dataKey="calories"
+          name="Calories brûlées (kCal)"
+          fill="#E60000"
           radius={[25, 25, 0, 0]}
           barSize={7}
         />
