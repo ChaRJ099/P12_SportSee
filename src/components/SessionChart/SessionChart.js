@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   Rectangle,
+  Legend,
 } from "recharts";
 import PropTypes from "prop-types";
 
@@ -72,25 +73,25 @@ function SessionChart({ dataSessions }) {
     <div className="session-chart-container">
       <h2 className="session-chart-title">Durée moyenne des sessions</h2>
       <LineChart
-        width={300}
+        width={258}
         height={100}
         data={dataSessions}
         margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
+          right: -2,
+          left: -2,
         }}
       >
         <CartesianGrid horizontal={false} vertical={false} />
         <XAxis
           dataKey="day"
-          axisLine={false}
           tickLine={false}
-          tick={{ fontSize: 12, fontWeight: 500 }}
-          stroke="rgba(255, 255, 255, 0.5)"
-          tickMargin={55}
+          fillOpacity={0.5}
+          style={{ transform: "scale(0.9)", transformOrigin: "bottom" }}
+          tick={{ fill: "#FFFFFF", fontWeight: 500, fontSize: 12 }}
+          tickMargin={8}
+          axisLine={false}
           tickFormatter={numberToLetter}
+          interval="preserveStartEnd"
         />
         <YAxis hide />
         <Tooltip
@@ -124,17 +125,8 @@ function SessionChart({ dataSessions }) {
           bottom: 40,
         }}
       >
-        <CartesianGrid horizontal={false} vertical={false} />
-        <XAxis
-          dataKey="day"
-          type="category"
-          axisLine={false}
-          tickLine={false}
-          tick={{ fontSize: 12, fontWeight: 500 }}
-          stroke="rgba(255, 255, 255, 0.5)"
-          tickMargin={55}
-          tickFormatter={numberToLetter}
-        />
+        
+       
         <YAxis
           axisLine={false}
           tickLine={false}
