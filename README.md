@@ -1,43 +1,80 @@
-[![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
+![logo](https://user-images.githubusercontent.com/76209231/169522099-204659eb-76cb-4da7-a7f9-df91211fef56.svg)
 
-![logo](src/assets/logo.png)
+# SportSee
 
----
+Startup dedicated to sport coaching.\
+Work on a new version of the user profile page with sports analytics dashboard.
 
-## Presentation
+[![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/uses-js.svg)](https://forthebadge.com)
+![library-react](https://user-images.githubusercontent.com/76209231/169810015-87e342f6-ce87-4033-8e16-8194630f88e0.svg)
+![library-recharts](https://user-images.githubusercontent.com/76209231/169810257-b16891a3-8f04-4e3c-8e3a-68a81e8f642b.svg)
+![tool-sass](https://user-images.githubusercontent.com/76209231/169813018-fb083b76-0ea4-4a9c-816a-19786ccdd023.svg)
 
-SportSee project is an application for sportive people that want to follow their daily progress through analytics dashboard.
+# 1. Launching the project
 
----
+## 1.1 Prerequisites
 
-## Prerequisites
+- [NodeJS (version 12.18)](https://nodejs.org/en/) to run npm command
+  or
+- [Yarn](https://yarnpkg.com/)
 
-- [NodeJS (**version 16.14.0**)](https://nodejs.org/en/)
-- [NPM (**version 8.3.1**)](https://www.npmjs.com/)
-- [Yarn (**version 1.22.19**)](https://yarnpkg.com/)
-- [ReactJS (**version 18.2.0**)](https://en.reactjs.org/) is recommanded to run charts correctly
-- [React Router Dom (**version 6.4.2**)](https://reactrouter.com/en/main)
-- [Recharts (**version 2.1.14**)](https://recharts.org/en-US/)
+## 1.2 Installing the project
 
-If you are working with several versions of NodeJS, we recommend you install [nvm](https://github.com/nvm-sh/nvm). This tool will allow you to easily manage your NodeJS versions.
+### Launching Back-End
 
----
+1. Clone the repo of the back-end
 
-## Installing the app
+   `git clone https://github.com/ChaRJ099/Projet_12-Back.git`
 
-- Forke and clone the repository : https://github.com/aissetousacko/OC_12_SportSee.git
-- Run the `yarn` command will allow you to install the dependencies
+2. Install the dependencies by running the command
 
-##### Back End :
+   `yarn` (or `yarn install`) or `npm i` (or `npm install`)
 
-- Open a new terminal and run `cd back-end` command,
-- Run `yarn dev`command, the backend will open on http://localhost:3000
+3. Launch the back-end on port 4200 (http://localhost:4200) by running the command
 
-##### Front End:
+   `yarn dev` or `npm start`
 
-- Open a new terminal, then run the `npm start` command will allow you to run the application on http://localhost:3001
+### Launching Front-End
 
----
+1. Clone the repo of the front-end
+
+   `git clone https://github.com/ChaRJ099/Projet_12-Front.git`
+
+2. Install the dependencies by running the command
+
+   `yarn` (or `yarn install`) or `npm i` (or `npm install`)
+
+3. Launch the front-end on port 3000 (http://localhost:3000) by running the command
+
+   `yarn start` or `npm start`
+
+_Currently, there are 2 users (user 12 & user 18)_
+
+# 2. Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## 2.1 Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### Recharts
+
+[A composable charting library built on React components](https://recharts.org/en-US/)
+
+### Sass
+
+[CSS extension language](https://sass-lang.com/)
 
 ### Author
 
