@@ -74,11 +74,13 @@ function SessionChart({ dataSessions }) {
       <h2 className="session-chart-title">Durée moyenne des sessions</h2>
       <LineChart
         width={258}
-        height={100}
+        height={120}
         data={dataSessions}
         margin={{
+          top: 0,
           right: -2,
           left: -2,
+          bottom: 10,
         }}
       >
         <CartesianGrid horizontal={false} vertical={false} />
@@ -89,6 +91,9 @@ function SessionChart({ dataSessions }) {
           style={{ transform: "scale(0.9)", transformOrigin: "bottom" }}
           tick={{ fill: "#FFFFFF", fontWeight: 500, fontSize: 12 }}
           tickMargin={8}
+          margin={{
+            top: 10,
+          }}
           axisLine={false}
           tickFormatter={numberToLetter}
           interval="preserveStartEnd"
@@ -114,34 +119,6 @@ function SessionChart({ dataSessions }) {
           }}
         />
       </LineChart>
-      {/* <LineChart
-        width={300}
-        height={100}
-        data={dataSessions}
-        margin={{
-          top: 80,
-          right: 8,
-          left: 8,
-          bottom: 40,
-        }}
-      >
-        
-       
-        <YAxis
-          axisLine={false}
-          tickLine={false}
-          tick={false}
-          domain={["dataMin - 5", "dataMax + 5"]}
-        />
-        <Tooltip content={<CustomTooltip />} />
-        <Line
-          type="natural"
-          dataKey="sessionLength"
-          stroke="#fff"
-          strokeWidth={2}
-          dot={false}
-        />
-      </LineChart> */}
     </div>
   );
 }
