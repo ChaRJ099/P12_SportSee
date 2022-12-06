@@ -1,22 +1,27 @@
   .section-aside-container {
     display: flex;
-    gap: 30px;
+    gap: 20px;
   }
 
   .nutri-cards-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    // margin-right: 20px;
     gap: 40px;
   }
 
   .activity-container {
     display: flex;
     flex-direction: column;
+    min-width: 634px;
+    width: 100%;
     gap: 30px;
   }
 
   .charts-container {
     display: flex;
-    gap: 30px;
-    width: 835px;
+    min-width: 634px;
+    width: 100%;
+    gap: 20px;
    }

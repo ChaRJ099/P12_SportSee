@@ -2,6 +2,10 @@ import "./perf-chart.scss";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * @param  {Array} {dataPerf}
+ * @returns {JSX.Element} Performance component
+ */
 function PerfChart({ dataPerf }) {
   const numberToLabelPerf = (kind) => {
     switch (kind) {
@@ -24,7 +28,7 @@ function PerfChart({ dataPerf }) {
 
   return (
     <div className="perf-chart-container">
-      <RadarChart outerRadius={85} width={250} height={250} data={dataPerf}>
+      <RadarChart outerRadius={50} width={200} height={210} data={dataPerf}>
         <PolarGrid radialLines={false} />
         <PolarAngleAxis
           dataKey="kind"

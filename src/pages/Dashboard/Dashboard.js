@@ -21,6 +21,8 @@ import "./dashboard.scss";
 import "../../components/NutritionCard/nutritionCard.scss";
 
 function Dashboard() {
+  const parentUserActivityWidth = window.innerWidth - 500;
+
   const { id } = useParams();
 
   const [userData, setUserData] = useState({});
@@ -74,7 +76,10 @@ function Dashboard() {
           <Title id={userData.id} firstname={userData.userInfos.firstName} />
           <div className="section-aside-container">
             <section className="activity-container">
-              <UserActivity dataActivity={userActivity.sessions} />
+              <UserActivity
+                dataActivity={userActivity.sessions}
+                parentUserActivityWidth={parentUserActivityWidth}
+              />
               <div className="charts-container">
                 <SessionChart dataSessions={userAverage.sessions} />
                 <PerfChart dataPerf={userPerf.data} />

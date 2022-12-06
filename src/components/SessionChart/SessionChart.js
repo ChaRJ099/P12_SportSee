@@ -29,7 +29,10 @@ const CustomCursor = (props) => {
     />
   );
 };
-
+/**
+ * @param  {Array} {dataSessions}
+ * @returns {JSX.Element} Session component
+ */
 function SessionChart({ dataSessions }) {
   const numberToLetter = (day) => {
     switch (day) {
@@ -56,7 +59,7 @@ function SessionChart({ dataSessions }) {
    * it returns  a tooltip with value and an added text "min" when active or it doesnt return anything
    * @param {boolean} active
    * @param {array} payload
-   * @returns {Node | null}
+   * @returns Customized Tooltip
    */
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
@@ -73,8 +76,8 @@ function SessionChart({ dataSessions }) {
     <div className="session-chart-container">
       <h2 className="session-chart-title">Durée moyenne des sessions</h2>
       <LineChart
-        width={258}
-        height={120}
+        width={200}
+        height={100}
         data={dataSessions}
         margin={{
           top: 0,

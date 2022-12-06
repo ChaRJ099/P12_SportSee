@@ -1,24 +1,24 @@
 import "./score-chart.scss";
 import { RadialBarChart, RadialBar } from "recharts";
 import PropTypes from "prop-types";
-
-const ScoreChart = ({ dataScore }) => {
-  console.log("dataScore", dataScore);
+/**
+ * @param  {Array} {dataScore}
+ * @returns {JSX.Element} Score component
+ */
+function ScoreChart({ dataScore }) {
   const score = dataScore.todayScore;
 
-  /**
-   * Format the score in percentage
-   * @param {object} data
-   * @returns an integer for percentage
-   */
   function calculatePercent() {
     return Math.round(score * 100);
   }
+
   const dataScorePercent = calculatePercent(dataScore);
-
+  // Initialize startAngle of RadialBarChart
+  // 90 = top of RadialBarChart
   const startAngle = 90;
-
-  const endAngle = score * 100 * 3.6 + startAngle;
+  // Custom endAngle of RadialBarChart
+  // Calcul score line of RadialBarChart
+  const endAngle = dataScorePercent * 3.6 + startAngle;
 
   return (
     <div className="score-chart-container">
@@ -28,10 +28,10 @@ const ScoreChart = ({ dataScore }) => {
       <div className="score-chart-content">
         <RadialBarChart
           className="score-chart"
-          width={200}
-          height={200}
-          innerRadius={80}
-          outerRadius={100}
+          width={100}
+          height={100}
+          innerRadius={45}
+          outerRadius={45}
           barSize={20}
           data={[dataScore]}
           startAngle={startAngle}
@@ -57,7 +57,7 @@ const ScoreChart = ({ dataScore }) => {
       </div>
     </div>
   );
-};
+}
 
 ScoreChart.propTypes = {
   dataScore: PropTypes.object,
